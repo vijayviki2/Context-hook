@@ -1,5 +1,5 @@
-import axios from 'axios'
 import React,  {useCallback, useEffect, useState} from 'react'
+import axios from 'axios'
 
 const url = 'https://jsonplaceholder.typicode.com'
 
@@ -9,6 +9,7 @@ function useCommentApi() {
     const getComments = useCallback(() =>{
         const readComments = async() =>  {
             const res = await axios.get(`${url}/comments`)
+            setComment(res.data)
         }
         readComments()
     },[])
